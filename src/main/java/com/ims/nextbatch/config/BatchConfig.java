@@ -22,7 +22,7 @@ public class BatchConfig {
 	}
 
 	@Bean
-	public Step stapStart(JobRepository jobRepository, PlatformTransactionManager transactionaManager) {
+	public Step stepStart(JobRepository jobRepository, PlatformTransactionManager transactionaManager) {
 		return new StepBuilder("stepStart", jobRepository)
 				.tasklet((StepContribution contribution, ChunkContext chunkContext) -> {
 					System.out.println("===== Job initialized =====");
