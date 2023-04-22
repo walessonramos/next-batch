@@ -39,3 +39,15 @@ para persistir esses metadados, tomando como um pré requisito.
 
 Incluídas as dependências do H2 e conector do mysql. Incluídos os profiles dos properties de conexão do BD.
 
+# 3 - Múltiplas Execuções e Escopo
+- Possibilitando o Job lógico(Job Instance) ser executado todas as vezes através do incremento de execução(Job execution). Assim,
+não ocorrerá mais a mensagem no log informando que o Job já foi executado.
+
+Obs: Cuidado com este recurso, pois este incremento impede o outro importante recurso que é a reinicialização do Job.
+Caso o processamento seja interrompido, retomar de onde parou não seria possíve, pois seria criada um nova instância do Job, 
+devido ao incrementador estar configurado. Assim, não seria possível retomar o processamento a partir da última instância interrompida.
+(Removeremos mais a frente)
+
+É possível capturar os parâmetros passados na execução do job e impri-los no log de execução.
+
+
